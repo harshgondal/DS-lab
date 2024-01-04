@@ -1,0 +1,105 @@
+SQL> create table account (acc_no numeric(5), branch_name varchar(10), bal numeric(5));
+
+Table created.
+
+SQL> create table branch ( branchname varchar(10), branchcity varchar(20), assets numeric(5));
+
+Table created.
+
+SQL> create table customer (cusname varchar (10), cusstreet varchar(10), cuscity varchar(20));
+
+Table created.
+
+SQL> insert into account values(123,'a',5);
+
+1 row created.
+
+SQL> insert into account values(124,'b',10);
+
+1 row created.
+
+SQL> insert into account values(125,'c',15);
+
+1 row created.
+
+SQL> insert into branch values('a','mumbai',5000);
+
+1 row created.
+
+SQL> insert into branch values('a','delhi',5000);
+
+1 row created.
+
+SQL> insert into branch values('a','manipal',5000);
+
+1 row created.
+
+SQL> insert into customer values('x','q','mumbai');
+
+1 row created.
+
+SQL> insert into customer values('y','q','delhi');
+
+1 row created.
+
+SQL> insert into customer values('z','q','manipal');
+
+1 row created.
+
+SQL> select * from account;
+
+    ACC_NO BRANCH_NAM        BAL
+---------- ---------- ----------
+       123 a                   5
+       124 b                  10
+       125 c                  15
+
+SQL> select * from branch;
+
+BRANCHNAME BRANCHCITY               ASSETS
+---------- -------------------- ----------
+a          mumbai                     5000
+a          delhi                      5000
+a          manipal                    5000
+
+SQL> select * from customer;
+
+CUSNAME    CUSSTREET  CUSCITY
+---------- ---------- --------------------
+x          q          mumbai
+y          q          delhi
+z          q          manipal
+
+SQL> select name from customer where city='manipal';
+select name from customer where city='manipal'
+                                *
+ERROR at line 1:
+ORA-00904: "CITY": invalid identifier
+
+
+SQL> select name from customer where cuscity='manipal';
+select name from customer where cuscity='manipal'
+       *
+ERROR at line 1:
+ORA-00904: "NAME": invalid identifier
+
+
+SQL> select cusname from customer where cuscity='manipal';
+
+CUSNAME
+----------
+z
+
+SQL> select * from branch where assets>10000;
+
+no rows selected
+
+SQL> select * from branch where assets>2000;
+
+BRANCHNAME BRANCHCITY               ASSETS
+---------- -------------------- ----------
+a          mumbai                     5000
+a          delhi                      5000
+a          manipal                    5000
+
+SQL>

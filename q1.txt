@@ -1,0 +1,136 @@
+SQL> create table employee(emp_no int, emp_name varchar(20), emp_address varchar(40));
+
+Table created.
+
+SQL> insert into employee values(1, 'harsh', 'delhi');
+
+1 row created.
+
+SQL> insert into employee values(1, 'vansh', 'mumbai');
+
+1 row created.
+
+SQL> insert into employee values(1, 'anish', 'gurgaon');
+
+1 row created.
+
+SQL> insert into employee values(1, 'akshay', 'noida');
+
+1 row created.
+
+SQL> insert into employee values(1, 'tejas', 'manipal');
+
+1 row created.
+
+SQL> select * from employee;
+
+    EMP_NO EMP_NAME             EMP_ADDRESS
+---------- -------------------- ----------------------------------------
+         1 harsh                delhi
+         1 vansh                mumbai
+         1 anish                gurgaon
+         1 akshay               noida
+         1 tejas                manipal
+
+SQL> select * from employee where emp_address = 'MANIPAL';
+
+no rows selected
+
+SQL> select * from employee where emp_address = 'manipal';
+
+    EMP_NO EMP_NAME             EMP_ADDRESS
+---------- -------------------- ----------------------------------------
+         1 tejas                manipal
+
+SQL> alter table employee add salary int;
+
+Table altered.
+
+SQL> desc employee
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_NO                                             NUMBER(38)
+ EMP_NAME                                           VARCHAR2(20)
+ EMP_ADDRESS                                        VARCHAR2(40)
+ SALARY                                             NUMBER(38)
+
+SQL> update employee set salary = 6900 where emp_name = 'harsh';
+
+1 row updated.
+
+SQL> update employee set salary = 4200 where emp_name = 'harsh';
+
+1 row updated.
+
+SQL> update employee set salary = 6900 where emp_name = 'vansh';
+
+1 row updated.
+
+SQL> update employee set salary = 3000 where emp_name = 'anish';
+
+1 row updated.
+
+SQL> update employee set salary = 2000 where emp_name = 'akshay';
+
+1 row updated.
+
+SQL> update employee set salary = 1000 where emp_name = 'tejas';
+
+1 row updated.
+
+SQL> desc employee
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMP_NO                                             NUMBER(38)
+ EMP_NAME                                           VARCHAR2(20)
+ EMP_ADDRESS                                        VARCHAR2(40)
+ SALARY                                             NUMBER(38)
+
+SQL> select emp_name from employee;
+
+EMP_NAME
+--------------------
+harsh
+vansh
+anish
+akshay
+tejas
+
+SQL> select * from employee where emp_address='MANIPAL';
+
+no rows selected
+
+SQL> select salary from employee where emp_address='manipal';
+
+    SALARY
+----------
+      1000
+
+SQL> select * from employee where emp_address='manipal';
+
+    EMP_NO EMP_NAME             EMP_ADDRESS
+---------- -------------------- ----------------------------------------
+    SALARY
+----------
+         1 tejas                manipal
+      1000
+
+
+SQL> DELETE FROM employee WHERE emp_address='manipal';
+
+1 row deleted.
+
+SQL> ALTER TABLE employee RENAME TO employee1;
+
+Table altered.
+
+SQL> drop table employee;
+drop table employee
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table employee1;
+
+Table dropped.
