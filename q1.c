@@ -1,122 +1,91 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<stdbool.h>
 typedef struct node{
-	int data;
-	struct node *rptr;
-	struct node *lptr;
+    int data;
+    struct node *lptr;
+    struct node *rptr;
 }node;
-void insertright(node **head,int value){
-	if(*head==NULL){
-		(*head)=malloc(sizeof(node));
-		(*head)->data=value;
-		(*head)->rptr=NULL;
-		(*head)->lptr=NULL;
-	}
-	else{
-		node *temp=malloc(sizeof(node));
-		temp->data=value;
-		node *p=*head;
-		while(p->rptr!=NULL){
-			p=p->rptr;
-		}
-		p->rptr=temp;
-		temp->lptr=p;
-		temp->rptr=NULL;
-	}
+node *create(int value){
+    node *ptr=malloc(sizeof(node));
+    ptr->data=value;
+    ptr->lptr=NULL;
+    ptr->rptr=NULL;
+    return ptr;
 }
-void insertleft(node **head,int value){
-	if(*head==NULL){
-		(*head)=malloc(sizeof(node));
-		(*head)->data=value;
-		(*head)->rptr=NULL;
-		(*head)->lptr=NULL;
-	}
-	else{
-		node *temp=malloc(sizeof(node));
-		temp->data=value;
-		node *p=*head;
-		while(p->lptr!=NULL){
-			p=p->lptr;
-		}
-		p->lptr=temp;
-		temp->rptr=p;
-		temp->lptr=NULL;
-		*head=temp;
-	}
-}
-int deleteright(node **head){
-	node *p=*head;
-	node *q=(*head)->rptr;
-	while(q->rptr!=NULL){
-		p=p->rptr;
-		q=q->rptr;
-	}
-	p->rptr=NULL;
-	int x=q->data;
-	free(q);
-	return x;
-}
-int deleteleft(node **head){
-	node*p=*head;
-	(*head)=(*head)->rptr;
-	(*head)->lptr=NULL;
-	int x=p->data;
-	free(p);
-	return x;
-}
-void display(node **head){
-	node *p=*head;
-	while(p!=NULL){
-		printf("%d\t",p->data);
-		p=p->rptr;
-	}
-}
-int main(){
-	node *head=NULL;
-    printf("1. Insertright \n2. InsertLeft\n3. Deleteright \n4. DeleteLeft\n5. Display \n6. Exit");
-    while(true){
-        printf("\nChoice: ");
-        int choice;
-        scanf("%d", &choice);
-        if(choice==1){
-        	int value;
-        	printf("enter element\n");
-        	scanf("%d",&value);
-            insertright(&head,value);
-        }
-        else if(choice==2){
-        	int value;
-        	printf("enter element\n");
-        	scanf("%d",&value);
-            insertleft(&head,value);
-        }
-        else if(choice==3){
-            if (head==NULL){
-                printf("\nQueue Empty!!\n");
-                continue;
+void insert(node **root,int value){
+    if(*root==NULL){
+        *root=(node*)malloc(sizeof(node));
+        (*root)->data=value;
+        (*root)->lptr=NULL;
+        (*root)->rptr=NULL;
+    }
+    else{
+        node *p=*root;
+        node *parent=NULL;
+        while(p!=NULL){
+            parent=p;
+            if((p)->data >value){
+                p=p->lptr;
             }
-            printf("\nDeleted %d\n", deleteright(&head));
-        }
-        else if(choice==4){
-            if (head==NULL){
-                printf("\nQueue Empty!!\n");
-                continue;
+            else {
+                p=p->rptr;
             }
-            printf("\nDeleted %d\n", deleteleft(&head));
-        }
-        else if(choice==5){
-            if (head==NULL){
-                printf("\nQueue Empty!!\n");
-                continue;
-            }
-            display(&head);
-        }
 
-        else if(choice==6){
+        }
+        node *temp=malloc(sizeof(node));
+        temp=create(value);
+    if(parent->data>value){
+        parent->lptr=temp;
+    }
+    else{
+        parent->rptr=temp;
+    }
+    }
+        
+}
+void search(node **root,int value){
+    if(*root==NULL){
+        *root=create(value);
+    }
+    node *p=*root;
+    int flag=0;
+    while(p!=NULL){
+        if(p->data==value){
+            printf("\nKey found\n");
+            flag=1;
             break;
         }
-
-        else printf("\nEnter a valid choice!!\n");
+        else{
+            if(p->data > value){
+                p=p->lptr;
+            }
+            else{
+                p=p->rptr;
+            }
+        }
     }
+    if(flag==0){
+        insert(&(*root),value);
+    }
+}
+void inorder(node **root){
+    if(*root==NULL){
+        return;
+    }
+        inorder(&((*root)->lptr));
+        printf("%d\t",(*root)->data);
+        inorder(&((*root)->rptr));
+    
+}
+int main(){
+    node *root=NULL;
+    insert(&root,5);
+    insert(&root,2);
+    insert(&root,3);
+    insert(&root,4);
+    inorder(&root);
+    search(&root,2);
+    search(&root,6);
+    printf("\n");
+    inorder(&root);
 }
