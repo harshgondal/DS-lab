@@ -1,0 +1,123 @@
+SQL> create table Employee(EmpNo numeric(5) primary key,
+  2  EmpName varchar(20) not null,
+  3  Gender character(1) not null check (Gender = 'M' OR Gender = 'F'),
+  4  Salary numeric(8) not null,
+  5  Address varchar(20) not null,
+  6  DNo numeric(5));
+
+Table created.
+
+SQL> create table Department(
+  2  DeptNo numeric(5) primary key,
+  3  DeptName varchar(20) unique);
+
+Table created.
+
+SQL> alter table Employee add constraint FK_DNo foreign key(DNo) references Department(DeptNo);
+
+Table altered.
+
+SQL> insert into Department values (1,'cse');
+
+1 row created.
+
+SQL> insert into Department values (2,'it');
+
+1 row created.
+
+SQL> insert into Department values (3,'ece');
+
+1 row created.
+
+SQL> insert into Employee values (1,'taksh','M',69000,'Manipal',1);
+
+1 row created.
+
+SQL> insert into Employee values (2,'sara','F',42000,'Manipal',3);
+
+1 row created.
+
+SQL> insert into Employee values (3,'jay','M',30000,'Manipal',2);
+
+1 row created.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME              G     SALARY ADDRESS                     DNO
+---------- -------------------- - ---------- -------------------- ----------
+         1 taksh                M      69000 Manipal                       1
+         2 sara                 F      42000 Manipal                       3
+         3 jay                  M      30000 Manipal                       2
+
+SQL> select * from department
+  2  ;
+
+    DEPTNO DEPTNAME
+---------- --------------------
+         1 cse
+         2 it
+         3 ece
+
+SQL> insert into employee values(4,'hjf','M',35523,'rggfre',765);
+insert into employee values(4,'hjf','M',35523,'rggfre',765)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (A53.FK_DNO) violated - parent key not found
+
+
+SQL> insert into employee values(4,'hjf','M',35523,'rggfre',NULL);
+
+1 row created.
+
+SQL> delete from employee where DNo=NULL;
+
+0 rows deleted.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME              G     SALARY ADDRESS                     DNO
+---------- -------------------- - ---------- -------------------- ----------
+         1 taksh                M      69000 Manipal                       1
+         2 sara                 F      42000 Manipal                       3
+         3 jay                  M      30000 Manipal                       2
+         4 hjf                  M      35523 rggfre
+
+SQL> delete from employee where EMPNAME='hfg';
+
+0 rows deleted.
+
+SQL> delete from employee where EMPNAME='hjf';
+
+1 row deleted.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME              G     SALARY ADDRESS                     DNO
+---------- -------------------- - ---------- -------------------- ----------
+         1 taksh                M      69000 Manipal                       1
+         2 sara                 F      42000 Manipal                       3
+         3 jay                  M      30000 Manipal                       2
+
+SQL> alter table employee drop constraint FK_DNo;
+
+Table altered.
+
+SQL> alter table employee add constraint FK_DNo foreign key(DNo) references department(DeptNo) on delete cascade;
+
+Table altered.
+
+SQL> alter table Employee modify(constraint defSal Salary default 10000);
+
+Table altered.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME              G     SALARY ADDRESS                     DNO
+---------- -------------------- - ---------- -------------------- ----------
+         1 taksh                M      69000 Manipal                       1
+         2 sara                 F      42000 Manipal                       3
+         3 jay                  M      30000 Manipal                       2
+
+SQL> commit;
+
+Commit complete.

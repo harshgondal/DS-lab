@@ -1,0 +1,847 @@
+
+SQL> rename department to department1
+  2  ;
+
+Table renamed.
+
+SQL> @C:\Users\ugcse.PG-14.000\Desktop\220962334\University.sql
+drop table prereq
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table time_slot
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table advisor
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table takes
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table student
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table teaches
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table section
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table instructor
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table course
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table department
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table classroom
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+SQL> @C:\Users\ugcse.PG-14.000\Desktop\220962334\smallRelations.sql
+
+0 rows deleted.
+
+
+0 rows deleted.
+
+
+0 rows deleted.
+
+
+0 rows deleted.
+
+
+0 rows deleted.
+
+
+0 rows deleted.
+
+
+0 rows deleted.
+
+
+0 rows deleted.
+
+
+0 rows deleted.
+
+
+0 rows deleted.
+
+
+0 rows deleted.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL>
+SQL> select name, dept_name from student
+  2  ;
+
+NAME                 DEPT_NAME
+-------------------- --------------------
+Zhang                Comp. Sci.
+Shankar              Comp. Sci.
+Brandt               History
+Chavez               Finance
+Peltier              Physics
+Levy                 Physics
+Williams             Comp. Sci.
+Sanchez              Music
+Snow                 Physics
+Brown                Comp. Sci.
+Aoi                  Elec. Eng.
+
+NAME                 DEPT_NAME
+-------------------- --------------------
+Bourikas             Elec. Eng.
+Tanaka               Biology
+
+13 rows selected.
+
+SQL> select * from department
+  2  ;
+
+DEPT_NAME            BUILDING            BUDGET
+-------------------- --------------- ----------
+Biology              Watson               90000
+Comp. Sci.           Taylor              100000
+Elec. Eng.           Taylor               85000
+Finance              Painter             120000
+History              Painter              50000
+Music                Packard              80000
+Physics              Watson               70000
+
+7 rows selected.
+
+SQL> select * from instructor where dept_name='Comp. Sci.';
+
+ID    NAME                 DEPT_NAME                SALARY
+----- -------------------- -------------------- ----------
+10101 Srinivasan           Comp. Sci.                65000
+45565 Katz                 Comp. Sci.                75000
+83821 Brandt               Comp. Sci.                92000
+
+SQL> select * from instructor;
+
+ID    NAME                 DEPT_NAME                SALARY
+----- -------------------- -------------------- ----------
+10101 Srinivasan           Comp. Sci.                65000
+12121 Wu                   Finance                   90000
+15151 Mozart               Music                     40000
+22222 Einstein             Physics                   95000
+32343 El Said              History                   60000
+33456 Gold                 Physics                   87000
+45565 Katz                 Comp. Sci.                75000
+58583 Califieri            History                   62000
+76543 Singh                Finance                   80000
+76766 Crick                Biology                   72000
+83821 Brandt               Comp. Sci.                92000
+
+ID    NAME                 DEPT_NAME                SALARY
+----- -------------------- -------------------- ----------
+98345 Kim                  Elec. Eng.                80000
+
+12 rows selected.
+
+SQL> select * from course;
+
+COURSE_I TITLE                                              DEPT_NAME
+-------- -------------------------------------------------- --------------------
+   CREDITS
+----------
+BIO-101  Intro. to Biology                                  Biology
+         4
+
+BIO-301  Genetics                                           Biology
+         4
+
+BIO-399  Computational Biology                              Biology
+         3
+
+
+COURSE_I TITLE                                              DEPT_NAME
+-------- -------------------------------------------------- --------------------
+   CREDITS
+----------
+CS-101   Intro. to Computer Science                         Comp. Sci.
+         4
+
+CS-190   Game Design                                        Comp. Sci.
+         4
+
+CS-315   Robotics                                           Comp. Sci.
+         3
+
+
+COURSE_I TITLE                                              DEPT_NAME
+-------- -------------------------------------------------- --------------------
+   CREDITS
+----------
+CS-319   Image Processing                                   Comp. Sci.
+         3
+
+CS-347   Database System Concepts                           Comp. Sci.
+         3
+
+EE-181   Intro. to Digital Systems                          Elec. Eng.
+         3
+
+
+COURSE_I TITLE                                              DEPT_NAME
+-------- -------------------------------------------------- --------------------
+   CREDITS
+----------
+FIN-201  Investment Banking                                 Finance
+         3
+
+HIS-351  World History                                      History
+         3
+
+MU-199   Music Video Production                             Music
+         3
+
+
+COURSE_I TITLE                                              DEPT_NAME
+-------- -------------------------------------------------- --------------------
+   CREDITS
+----------
+PHY-101  Physical Principles                                Physics
+         4
+
+
+13 rows selected.
+
+SQL> select * from course where dept_name ='Comp. Sci.';
+
+COURSE_I TITLE                                              DEPT_NAME
+-------- -------------------------------------------------- --------------------
+   CREDITS
+----------
+CS-101   Intro. to Computer Science                         Comp. Sci.
+         4
+
+CS-190   Game Design                                        Comp. Sci.
+         4
+
+CS-315   Robotics                                           Comp. Sci.
+         3
+
+
+COURSE_I TITLE                                              DEPT_NAME
+-------- -------------------------------------------------- --------------------
+   CREDITS
+----------
+CS-319   Image Processing                                   Comp. Sci.
+         3
+
+CS-347   Database System Concepts                           Comp. Sci.
+         3
+
+
+SQL> select title from course where dept_name ='Comp. Sci.' and credits=3;
+
+TITLE
+--------------------------------------------------
+Robotics
+Image Processing
+Database System Concepts
+
+SQL> desc takes;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL VARCHAR2(5)
+ COURSE_ID                                 NOT NULL VARCHAR2(8)
+ SEC_ID                                    NOT NULL VARCHAR2(8)
+ SEMESTER                                  NOT NULL VARCHAR2(6)
+ YEAR                                      NOT NULL NUMBER(4)
+ GRADE                                              VARCHAR2(2)
+
+SQL> desc course;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COURSE_ID                                 NOT NULL VARCHAR2(8)
+ TITLE                                              VARCHAR2(50)
+ DEPT_NAME                                          VARCHAR2(20)
+ CREDITS                                            NUMBER(2)
+
+SQL> select course.course_id,course.title from course,takes where takes.id='12345' and takes.course_id=course.course_id;
+
+COURSE_I TITLE
+-------- --------------------------------------------------
+CS-101   Intro. to Computer Science
+CS-190   Game Design
+CS-315   Robotics
+CS-347   Database System Concepts
+
+SQL> select course.course_id,course.title from course,takes where takes.id='12345';
+
+COURSE_I TITLE
+-------- --------------------------------------------------
+BIO-101  Intro. to Biology
+BIO-101  Intro. to Biology
+BIO-101  Intro. to Biology
+BIO-101  Intro. to Biology
+BIO-301  Genetics
+BIO-301  Genetics
+BIO-301  Genetics
+BIO-301  Genetics
+BIO-399  Computational Biology
+BIO-399  Computational Biology
+BIO-399  Computational Biology
+
+COURSE_I TITLE
+-------- --------------------------------------------------
+BIO-399  Computational Biology
+CS-101   Intro. to Computer Science
+CS-101   Intro. to Computer Science
+CS-101   Intro. to Computer Science
+CS-101   Intro. to Computer Science
+CS-190   Game Design
+CS-190   Game Design
+CS-190   Game Design
+CS-190   Game Design
+CS-315   Robotics
+CS-315   Robotics
+
+COURSE_I TITLE
+-------- --------------------------------------------------
+CS-315   Robotics
+CS-315   Robotics
+CS-319   Image Processing
+CS-319   Image Processing
+CS-319   Image Processing
+CS-319   Image Processing
+CS-347   Database System Concepts
+CS-347   Database System Concepts
+CS-347   Database System Concepts
+CS-347   Database System Concepts
+EE-181   Intro. to Digital Systems
+
+COURSE_I TITLE
+-------- --------------------------------------------------
+EE-181   Intro. to Digital Systems
+EE-181   Intro. to Digital Systems
+EE-181   Intro. to Digital Systems
+FIN-201  Investment Banking
+FIN-201  Investment Banking
+FIN-201  Investment Banking
+FIN-201  Investment Banking
+HIS-351  World History
+HIS-351  World History
+HIS-351  World History
+HIS-351  World History
+
+COURSE_I TITLE
+-------- --------------------------------------------------
+MU-199   Music Video Production
+MU-199   Music Video Production
+MU-199   Music Video Production
+MU-199   Music Video Production
+PHY-101  Physical Principles
+PHY-101  Physical Principles
+PHY-101  Physical Principles
+PHY-101  Physical Principles
+
+52 rows selected.
+
+SQL> select * from instructor where salary>40000 and salary<90000;
+
+ID    NAME                 DEPT_NAME                SALARY
+----- -------------------- -------------------- ----------
+10101 Srinivasan           Comp. Sci.                65000
+32343 El Said              History                   60000
+33456 Gold                 Physics                   87000
+45565 Katz                 Comp. Sci.                75000
+58583 Califieri            History                   62000
+76543 Singh                Finance                   80000
+76766 Crick                Biology                   72000
+98345 Kim                  Elec. Eng.                80000
+
+8 rows selected.
+
+SQL> commit;
+
+Commit complete.
