@@ -1,0 +1,103 @@
+
+SQL> select c.course_id from course c,takes t
+  2  where t;
+where t
+      *
+ERROR at line 2:
+ORA-00920: invalid relational operator
+
+
+SQL> select s.course_id from section s where s.semester='Fall' and s.year='2009'
+  2  union
+  3  select s.course_id from section s where s.semester='Spring' and s.year='2010';
+
+COURSE_I
+--------
+CS-101
+CS-315
+CS-319
+CS-347
+FIN-201
+HIS-351
+MU-199
+PHY-101
+
+8 rows selected.
+
+SQL> select s.course_id from section s where s.semester='Fall' and s.year='2009'
+  2  intersect
+  3  select s.course_id from section s where s.semester='Spring' and s.year='2010';
+
+COURSE_I
+--------
+CS-101
+
+SQL> select s.course_id from section s where s.semester='Fall' and s.year='2009'
+  2  minus
+  3  select s.course_id from section s where s.semester='Spring' and s.year='2010';
+
+COURSE_I
+--------
+CS-347
+PHY-101
+
+SQL> select s.name from student s,course c,takes t where t.id=s.id and
+  2  ;'
+  3  ;
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> select c.name from course c
+  2  minus
+  3  select t.name from takes t;
+select c.name from course c
+       *
+ERROR at line 1:
+ORA-00904: "C"."NAME": invalid identifier
+
+
+SQL> select c.title from course c
+  2  minus
+  3  select t.title from takes t;
+select t.title from takes t
+       *
+ERROR at line 3:
+ORA-00904: "T"."TITLE": invalid identifier
+
+
+SQL> select c.title from course c
+  2  minus
+  3  select c1.title from takes t,course c1 where c1.course_id=t.course_id;
+
+TITLE
+--------------------------------------------------
+Computational Biology
+
+SQL> select s.course_id from section s where s.semester='fall'and s.year=2009
+  2  and s.course_id in
+  3  (select s.course_id from section s where s.semester='fall'and s.year=2010);
+
+no rows selected
+
+SQL> (select s.course_id from section s where s.semester='Fall'and s.year=2009);
+
+COURSE_I
+--------
+CS-101
+CS-347
+PHY-101
+
+SQL> select s.course_id from section s where s.semester='Fall'and s.year=2009
+  2  and course_id in
+  3  (select s.course_id from section s where s.semester='Fall'and s.year=2010);
+
+no rows selected
+
+SQL> select s.course_id from section s where s.semester='Fall'and s.year=2009
+  2  and s.course_id in
+  3  (select s.course_id from section s where s.semester='Spring'and s.year=2010);
+
+COURSE_I
+--------
+CS-101
