@@ -1,0 +1,856 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Jan 17 08:01:00 2024
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: A53@cseorcl
+Enter password:
+Last Successful login time: Wed Jan 10 2024 09:51:37 +05:30
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+SQL> select i.id
+  2  from instructor i,teaches t
+  3  where count(t.course_id)=1;
+where count(t.course_id)=1
+      *
+ERROR at line 3:
+ORA-00934: group function is not allowed here
+
+
+SQL> select i.id
+  2  from instructor i,teaches t
+  3  where i.id=t.id;
+
+ID
+-----
+10101
+10101
+10101
+12121
+15151
+22222
+32343
+45565
+45565
+76766
+76766
+
+ID
+-----
+83821
+83821
+83821
+98345
+
+15 rows selected.
+
+SQL> select distinct(i.id)
+  2  from instructor i,teaches t
+  3  where i.id=t.id;
+
+ID
+-----
+10101
+12121
+15151
+22222
+32343
+45565
+76766
+83821
+98345
+
+9 rows selected.
+
+SQL> select title from course;
+
+TITLE
+--------------------------------------------------
+Intro. to Biology
+Genetics
+Computational Biology
+Intro. to Computer Science
+Game Design
+Robotics
+Image Processing
+Database System Concepts
+Intro. to Digital Systems
+Investment Banking
+World History
+
+TITLE
+--------------------------------------------------
+Music Video Production
+Physical Principles
+
+13 rows selected.
+
+SQL> select s.name,c.title,s.year
+  2  from student s,course c,secti;
+from student s,course c,secti
+                        *
+ERROR at line 2:
+ORA-00942: table or view does not exist
+
+
+SQL> select s.name,c.title,se.year
+  2  from student s,course c,section se
+  3  where se.room_number=303;
+
+no rows selected
+
+SQL> desc section;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COURSE_ID                                 NOT NULL VARCHAR2(8)
+ SEC_ID                                    NOT NULL VARCHAR2(8)
+ SEMESTER                                  NOT NULL VARCHAR2(6)
+ YEAR                                      NOT NULL NUMBER(4)
+ BUILDING                                           VARCHAR2(15)
+ ROOM_NUMBER                                        VARCHAR2(7)
+ TIME_SLOT_ID                                       VARCHAR2(4)
+
+SQL> select s.name,c.title,se.year
+  2  from student s,course c,section se,takes t
+  3  se.room_number='303' and se.course_id=t.course_id and t.course_id=c.course_id and t.id=.id;
+se.room_number='303' and se.course_id=t.course_id and t.course_id=c.course_id and t.id=.id
+*
+ERROR at line 3:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select s.name,c.title,se.year
+  2  from student s,course c,section se,takes t
+  3  se.room_number='303' and se.course_id=t.course_id and t.course_id=c.course_id and t.id=s.id;
+se.room_number='303' and se.course_id=t.course_id and t.course_id=c.course_id and t.id=s.id
+*
+ERROR at line 3:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select s.name,c.title,se.year
+  2  from student s,course c,section se,takes t
+  3  where se.room_number='303' and se.course_id=t.course_id and t.course_id=c.course_id and t.id=.id;
+where se.room_number='303' and se.course_id=t.course_id and t.course_id=c.course_id and t.id=.id
+                                                                                             *
+ERROR at line 3:
+ORA-00936: missing expression
+
+
+SQL> select s.name,c.title,se.year
+  2  from student s,course c,section se,takes t
+  3  where se.room_number='101' and se.course_id=t.course_id and t.course_id=c.course_id and t.id=s.id;
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Zhang                Intro. to Computer Science
+      2010
+
+Shankar              Intro. to Computer Science
+      2010
+
+Levy                 Intro. to Computer Science
+      2010
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Levy                 Intro. to Computer Science
+      2010
+
+Williams             Intro. to Computer Science
+      2010
+
+Brown                Intro. to Computer Science
+      2010
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Bourikas             Intro. to Computer Science
+      2010
+
+Zhang                Intro. to Computer Science
+      2009
+
+Shankar              Intro. to Computer Science
+      2009
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Levy                 Intro. to Computer Science
+      2009
+
+Levy                 Intro. to Computer Science
+      2009
+
+Williams             Intro. to Computer Science
+      2009
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Brown                Intro. to Computer Science
+      2009
+
+Bourikas             Intro. to Computer Science
+      2009
+
+Chavez               Investment Banking
+      2010
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Sanchez              Music Video Production
+      2010
+
+
+16 rows selected.
+
+SQL> select s.name,c.title,s.year
+  2  from student s,course c,;
+from student s,course c,
+                       *
+ERROR at line 2:
+ORA-00903: invalid table name
+
+
+SQL> select s.name,c.title,se.year
+  2  from student s,course c,section se,takes t
+  3  where se.course_id=t.course_id and se.section_id=t.section_id and t.course_id=c.course_id and c.id=s.id;
+where se.course_id=t.course_id and se.section_id=t.section_id and t.course_id=c.course_id and c.id=s.id
+                                                                                              *
+ERROR at line 3:
+ORA-00904: "C"."ID": invalid identifier
+
+
+SQL> select s.name,c.title,se.year
+  2  from student s,course c,section se,takes t
+  3  where se.course_id=t.course_id and se.section_id=t.section_id and t.course_id=c.course_id and c.id=t.id;
+where se.course_id=t.course_id and se.section_id=t.section_id and t.course_id=c.course_id and c.id=t.id
+                                                                                              *
+ERROR at line 3:
+ORA-00904: "C"."ID": invalid identifier
+
+
+SQL> select s.name,c.title,se.year
+  2  from student s,course c,section se,takes t
+  3  where se.course_id=t.course_id and se.section_id=t.section_id and t.course_id=c.course_id and t.id=s.id;
+where se.course_id=t.course_id and se.section_id=t.section_id and t.course_id=c.course_id and t.id=s.id
+                                                 *
+ERROR at line 3:
+ORA-00904: "T"."SECTION_ID": invalid identifier
+
+
+SQL> select s.name,c.title,se.year
+  2  from student s,course c,section se,takes t
+  3  where se.course_id=t.course_id and se.sec_id=t.sec_id and t.course_id=c.course_id and c.id=s.id;
+where se.course_id=t.course_id and se.sec_id=t.sec_id and t.course_id=c.course_id and c.id=s.id
+                                                                                      *
+ERROR at line 3:
+ORA-00904: "C"."ID": invalid identifier
+
+
+SQL> select s.name,c.title,se.year
+  2  from student s,course c,section se,takes t
+  3  where se.course_id=t.course_id and se.sec_id=t.sec_id and t.course_id=c.course_id and t.id=s.id;
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Tanaka               Intro. to Biology
+      2009
+
+Tanaka               Genetics
+      2010
+
+Zhang                Intro. to Computer Science
+      2010
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Shankar              Intro. to Computer Science
+      2010
+
+Levy                 Intro. to Computer Science
+      2010
+
+Levy                 Intro. to Computer Science
+      2010
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Williams             Intro. to Computer Science
+      2010
+
+Brown                Intro. to Computer Science
+      2010
+
+Bourikas             Intro. to Computer Science
+      2010
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Zhang                Intro. to Computer Science
+      2009
+
+Shankar              Intro. to Computer Science
+      2009
+
+Levy                 Intro. to Computer Science
+      2009
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Levy                 Intro. to Computer Science
+      2009
+
+Williams             Intro. to Computer Science
+      2009
+
+Brown                Intro. to Computer Science
+      2009
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Bourikas             Intro. to Computer Science
+      2009
+
+Shankar              Game Design
+      2009
+
+Williams             Game Design
+      2009
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Shankar              Robotics
+      2010
+
+Bourikas             Robotics
+      2010
+
+Brown                Image Processing
+      2010
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Levy                 Image Processing
+      2010
+
+Zhang                Database System Concepts
+      2009
+
+Shankar              Database System Concepts
+      2009
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Aoi                  Intro. to Digital Systems
+      2009
+
+Chavez               Investment Banking
+      2010
+
+Brandt               World History
+      2010
+
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Sanchez              Music Video Production
+      2010
+
+Peltier              Physical Principles
+      2009
+
+
+29 rows selected.
+
+SQL> select s.name,c.title,se.year
+  2  from student s,course c,section se,takes t
+  3   where se.course_id=t.course_id and se.sec_id=t.sec_id and t.course_id=c.course_id and t.id=s.id and se.room_number=100;
+
+NAME                 TITLE
+-------------------- --------------------------------------------------
+      YEAR
+----------
+Peltier              Physical Principles
+      2009
+
+Levy                 Image Processing
+      2010
+
+
+SQL> select s.name,c.course_id
+  2  from student s,course c,takes t
+  3  where t.year=2010 and t.course_id=c.course_id and t.id=s.id;
+
+NAME                 COURSE_I
+-------------------- --------
+Shankar              CS-315
+Brandt               HIS-351
+Chavez               FIN-201
+Levy                 CS-101
+Levy                 CS-319
+Sanchez              MU-199
+Brown                CS-319
+Bourikas             CS-315
+Tanaka               BIO-301
+
+9 rows selected.
+
+SQL> select i.name i.salary inst_salary
+  2  from instructor i,instructor j
+  3  where i.salary>j.salary and i.dept_name='Comp. Sci.';
+select i.name i.salary inst_salary
+               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select i.name,i.salary inst_salary
+  2  from instructor i,instructor j
+  3  where t.year=2010 and t.course_id=c.course_id and t.id=s.id;
+where t.year=2010 and t.course_id=c.course_id and t.id=s.id
+                                                       *
+ERROR at line 3:
+ORA-00904: "S"."ID": invalid identifier
+
+
+SQL> select i.name,i.salary inst_salary
+  2  from instructor i,instructor j
+  3  where i.salary>j.salary and i.dept_name='Comp. Sci.';
+
+NAME                 INST_SALARY
+-------------------- -----------
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Katz                       75000
+
+NAME                 INST_SALARY
+-------------------- -----------
+Katz                       75000
+Katz                       75000
+Katz                       75000
+Katz                       75000
+Srinivasan                 65000
+Srinivasan                 65000
+Srinivasan                 65000
+
+18 rows selected.
+
+SQL> select i.name i.salary inst_salary
+  2  ;
+select i.name i.salary inst_salary
+               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select i.name,i.salary inst_salary
+  2  from instructor i
+  3  where i.salary>(select min(i.salary) from i where dept_name='Comp. Sci.';
+where i.salary>(select min(i.salary) from i where dept_name='Comp. Sci.'
+                *
+ERROR at line 3:
+ORA-00921: unexpected end of SQL command
+
+
+SQL> select i.name,i.salary inst_salary
+  2  from instructor i
+  3  where i.salary>(select min(i.salary) from i where dept_name='Comp. Sci.');
+where i.salary>(select min(i.salary) from i where dept_name='Comp. Sci.')
+                                          *
+ERROR at line 3:
+ORA-00942: table or view does not exist
+
+
+SQL> select name, salary as inst_salary from Instructor where salary > (select min(salary) from Instructor where dept_name = 'Comp. Sci.');
+
+NAME                 INST_SALARY
+-------------------- -----------
+Wu                         90000
+Einstein                   95000
+Gold                       87000
+Katz                       75000
+Singh                      80000
+Crick                      72000
+Brandt                     92000
+Kim                        80000
+
+8 rows selected.
+
+SQL> select name, salary as inst_salary from Instructor i where i.salary > (select min(i.salary) from i where i.dept_name = 'Comp. Sci.');
+select name, salary as inst_salary from Instructor i where i.salary > (select min(i.salary) from i where i.dept_name = 'Comp. Sci.')
+                                                                                                 *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select i.name,i.salary inst_salary
+  2  from instructor i,instructor j
+  3  where i.dept_name='Comp. Sci.' and i.salary>j.salary;
+
+NAME                 INST_SALARY
+-------------------- -----------
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Brandt                     92000
+Katz                       75000
+
+NAME                 INST_SALARY
+-------------------- -----------
+Katz                       75000
+Katz                       75000
+Katz                       75000
+Katz                       75000
+Srinivasan                 65000
+Srinivasan                 65000
+Srinivasan                 65000
+
+18 rows selected.
+
+SQL> select distinct(i.name,i.salary inst_salary)
+  2  from instructor i,instructor j
+  3  where i.dept_name='Comp. Sci.' and i.salary>j.salary;
+select distinct(i.name,i.salary inst_salary)
+                      *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> select distinct i.name,i.salary inst_salary
+  2  from instructor i,instructor j
+  3  where i.dept_name='Comp. Sci.' and i.salary>j.salary;
+
+NAME                 INST_SALARY
+-------------------- -----------
+Brandt                     92000
+Srinivasan                 65000
+Katz                       75000
+
+SQL> select distinct i.name,i.salary inst_salary
+  2  from instructor i,instructor j
+  3  where j.dept_name='Comp. Sci.' and i.salary>j.salary;
+
+NAME                 INST_SALARY
+-------------------- -----------
+Brandt                     92000
+Wu                         90000
+Einstein                   95000
+Gold                       87000
+Kim                        80000
+Singh                      80000
+Katz                       75000
+Crick                      72000
+
+8 rows selected.
+
+SQL> select name from Instructor where dept_name like '%ch%';
+
+no rows selected
+
+SQL> select name from Instructor where dept_name like '%sci%';
+
+no rows selected
+
+SQL> select name from Instructor where lower(dept_name) like '%sci%';
+
+NAME
+--------------------
+Srinivasan
+Katz
+Brandt
+
+SQL> select student.name ,length(student.name) from student;
+
+NAME                 LENGTH(STUDENT.NAME)
+-------------------- --------------------
+Zhang                                   5
+Shankar                                 7
+Brandt                                  6
+Chavez                                  6
+Peltier                                 7
+Levy                                    4
+Williams                                8
+Sanchez                                 7
+Snow                                    4
+Brown                                   5
+Aoi                                     3
+
+NAME                 LENGTH(STUDENT.NAME)
+-------------------- --------------------
+Bourikas                                8
+Tanaka                                  6
+
+13 rows selected.
+
+SQL> select department.dept_name,substr(dept_name,3,3) from department;
+
+DEPT_NAME            SUB
+-------------------- ---
+Biology              olo
+Comp. Sci.           mp.
+Elec. Eng.           ec.
+Finance              nan
+History              sto
+Music                sic
+Physics              ysi
+
+7 rows selected.
+
+SQL> select upper(instructor.name) from instructor;
+
+UPPER(INSTRUCTOR.NAM
+--------------------
+SRINIVASAN
+WU
+MOZART
+EINSTEIN
+EL SAID
+GOLD
+KATZ
+CALIFIERI
+SINGH
+CRICK
+BRANDT
+
+UPPER(INSTRUCTOR.NAM
+--------------------
+KIM
+
+12 rows selected.
+
+SQL> select id, course_id, NVL(grade, 'NA') from takes where semester = 'Summer';
+
+ID    COURSE_I NV
+----- -------- --
+98988 BIO-101  A
+98988 BIO-301  NA
+
+SQL> select instructor.salary,ROUND(salary/3,-2) from instructor;
+
+    SALARY ROUND(SALARY/3,-2)
+---------- ------------------
+     65000              21700
+     90000              30000
+     40000              13300
+     95000              31700
+     60000              20000
+     87000              29000
+     75000              25000
+     62000              20700
+     80000              26700
+     72000              24000
+     92000              30700
+
+    SALARY ROUND(SALARY/3,-2)
+---------- ------------------
+     80000              26700
+
+12 rows selected.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME              G     SALARY ADDRESS                     DNO
+---------- -------------------- - ---------- -------------------- ----------
+         1 taksh                M      69000 Manipal                       1
+         2 sara                 F      42000 Manipal                       3
+         3 jay                  M      30000 Manipal                       2
+
+SQL> alter table add DOB varchar(20
+  2  ;
+alter table add DOB varchar(20
+            *
+ERROR at line 1:
+ORA-00903: invalid table name
+
+
+SQL> alter table add DOB numeric(20);
+alter table add DOB numeric(20)
+            *
+ERROR at line 1:
+ORA-00903: invalid table name
+
+
+SQL> alter table employee add DOB numeric(20);
+
+Table altered.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME              G     SALARY ADDRESS                     DNO
+---------- -------------------- - ---------- -------------------- ----------
+       DOB
+----------
+         1 taksh                M      69000 Manipal                       1
+
+
+         2 sara                 F      42000 Manipal                       3
+
+
+         3 jay                  M      30000 Manipal                       2
+
+
+
+SQL> delete DOB from employee;
+delete DOB from employee
+           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> alter table employee drop column DOB;
+
+Table altered.
+
+SQL> alter table employee add DOB date;
+
+Table altered.
+
+SQL> update employee set DOB=to_date('12JAN2024','DDMMYYYY') where empno=1;
+
+1 row updated.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME              G     SALARY ADDRESS                     DNO
+---------- -------------------- - ---------- -------------------- ----------
+DOB
+---------
+         1 taksh                M      69000 Manipal                       1
+12-JAN-24
+
+         2 sara                 F      42000 Manipal                       3
+
+
+         3 jay                  M      30000 Manipal                       2
+
+
+
+SQL> update employee set DOB=to_date('12JAN2024','DDMMYYYY') where empno=2;
+
+1 row updated.
+
+SQL> update employee set DOB=to_date('12JAN2024','DDMMYYYY') where empno=3;
+
+1 row updated.
+
+SQL> select * from employee;
+
+     EMPNO EMPNAME              G     SALARY ADDRESS                     DNO
+---------- -------------------- - ---------- -------------------- ----------
+DOB
+---------
+         1 taksh                M      69000 Manipal                       1
+12-JAN-24
+
+         2 sara                 F      42000 Manipal                       3
+12-JAN-24
+
+         3 jay                  M      30000 Manipal                       2
+12-JAN-24
+
+
+SQL> select empname,to_char(dob,'YYYY') from employee;
+
+EMPNAME              TO_C
+-------------------- ----
+taksh                2024
+sara                 2024
+jay                  2024
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select empname,to_char(dob,'Year') from employee;
+
+EMPNAME              TO_CHAR(DOB,'YEAR')
+-------------------- ------------------------------------------
+taksh                Twenty Twenty-Four
+sara                 Twenty Twenty-Four
+jay                  Twenty Twenty-Four
+
+SQL> select empname,to_char(dob,'YEAR') from employee;
+
+EMPNAME              TO_CHAR(DOB,'YEAR')
+-------------------- ------------------------------------------
+taksh                TWENTY TWENTY-FOUR
+sara                 TWENTY TWENTY-FOUR
+jay                  TWENTY TWENTY-FOUR
+
+SQL> select empname,to_char(dob,'year') from employee;
+
+EMPNAME              TO_CHAR(DOB,'YEAR')
+-------------------- ------------------------------------------
+taksh                twenty twenty-four
+sara                 twenty twenty-four
+jay                  twenty twenty-four
+
+SQL> commit;
+
+Commit complete.
+
+SQL>
