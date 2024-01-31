@@ -1,0 +1,740 @@
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Jan 31 09:21:21 2024
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: A53@cseorcl
+Enter password:
+Last Successful login time: Wed Jan 31 2024 09:07:26 +05:30
+
+Connected to:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+
+SQL> drop table department1;
+drop table department1
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> @C:\Users\ugcse.PG-14.000\Downloads\company.sql
+drop table prereq
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table time_slot
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table advisor
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table takes
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table student
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table teaches
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table section
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table instructor
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table course
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+
+Table dropped.
+
+drop table classroom
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+
+Table dropped.
+
+drop table works_on
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table project
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table dept_locations
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table department1
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+drop table employee1
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+
+Table dropped.
+
+drop table dept_locations
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+FNAME           M LNAME           SSN       BDATE
+--------------- - --------------- --------- ---------
+ADDRESS                        S     SALARY SUPER_SSN        DNO
+------------------------------ - ---------- --------- ----------
+Richard         K Marini          653298653 30-DEC-62
+98 Oak Forest, Katy, TX        M      37000 653298653          4
+
+John            B Smith           123456789 09-JAN-65
+731 Fondren, Houston, TX       M      30000 333445555          5
+
+Franklin        T Wong            333445555 08-DEC-65
+638 Voss, Houston, TX          M      40000 888665555          5
+
+
+FNAME           M LNAME           SSN       BDATE
+--------------- - --------------- --------- ---------
+ADDRESS                        S     SALARY SUPER_SSN        DNO
+------------------------------ - ---------- --------- ----------
+Alicia          J Zelaya          999887777 19-JAN-68
+3321 Castle, Spring, TX        F      25000 987654321          4
+
+Jennifer        S Wallace         987654321 20-JUN-41
+291 Berry, Bellaire, TX        F      43000 888665555          4
+
+Ramesh          K Narayan         666884444 15-SEP-62
+975 Fire Oak, Humble, TX       M      38000 333445555          5
+
+
+FNAME           M LNAME           SSN       BDATE
+--------------- - --------------- --------- ---------
+ADDRESS                        S     SALARY SUPER_SSN        DNO
+------------------------------ - ---------- --------- ----------
+Joyce           A English         453453453 31-JUL-72
+5631 Rice, Houston, TX         F      25000 333445555          5
+
+Ahmad           V Jabbar          987987987 29-MAR-69
+980 Dallas, Houston, TX        M      25000 987654321          4
+
+James           E Borg            888665555 10-NOV-37
+450 Stone, Houston, TX         M      55000                    4
+
+
+9 rows selected.
+
+
+DNAME              DNUMBER MGR_SSN   MGR_START
+--------------- ---------- --------- ---------
+Research                 5 333445555 22-MAY-88
+Administration           4 987654321 01-JAN-95
+Headquarters             1 888665555 19-JUN-81
+
+
+   DNUMBER DLOCATION
+---------- ---------------
+         1 Houston
+         4 Stafford
+         5 Bellaire
+         5 Houston
+         5 Sugarland
+
+
+PNAME              PNUMBER PLOCATION             DNUM
+--------------- ---------- --------------- ----------
+ProductX                 1  Bellaire                5
+ProductY                 2 Sugarland                5
+ProductZ                 3 Houston                  5
+Computerization         10 Stafford                 4
+Reorganization          20 Houston                  1
+Newbenefits             30 Starfford                4
+
+6 rows selected.
+
+
+ESSN             PNO      HOURS
+--------- ---------- ----------
+123456789          1       32.5
+123456789          2        7.5
+666884444          3         40
+453453453          1         20
+453453453          2         20
+333445555          2         10
+333445555          3         10
+333445555         10         10
+333445555         20         10
+999887777         30         30
+999887777         10         10
+
+ESSN             PNO      HOURS
+--------- ---------- ----------
+987987987         10         35
+987987987         30          5
+987654321         30         20
+987654321         20         15
+888665555         20          0
+
+16 rows selected.
+
+
+ESSN      DEPENDENT_NAME  S BDATE     RELATION
+--------- --------------- - --------- --------
+333445555 Alice           F 05-APR-86 Daughter
+333445555 Theodore        M 25-OCT-83 Son
+333445555 Joy             F 03-MAY-58 Spouse
+987654321 Abner           M 28-FEB-42 Spouse
+123456789 Michael         M 04-JAN-88 Son
+123456789 Alice           F 30-DEC-88 Daughter
+123456789 Elizabeth       F 05-MAY-67 Spouse
+
+7 rows selected.
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+WORKS_ON
+PROJECT
+EMPLOYEE
+DEPT_LOCATIONS
+DEPENDENT
+DEPARTMENT
+CUSTOMER
+BRANCH
+ACCOUNT
+
+9 rows selected.
+
+SQL> desc employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FNAME                                     NOT NULL VARCHAR2(15)
+ MINIT                                              CHAR(1)
+ LNAME                                     NOT NULL VARCHAR2(15)
+ SSN                                       NOT NULL CHAR(9)
+ BDATE                                              DATE
+ ADDRESS                                            VARCHAR2(30)
+ SEX                                                CHAR(1)
+ SALARY                                             NUMBER(10,2)
+ SUPER_SSN                                          CHAR(9)
+ DNO                                       NOT NULL NUMBER(38)
+
+SQL> select bdate,address from employee where fname='John' and minit='B' and lname=
+  2  'Smith';
+
+BDATE     ADDRESS
+--------- ------------------------------
+09-JAN-65 731 Fondren, Houston, TX
+
+SQL> select fname, minit, lname, address from employee natural join department where
+dname='Research';
+
+FNAME           M LNAME           ADDRESS
+--------------- - --------------- ------------------------------
+Richard         K Marini          98 Oak Forest, Katy, TX
+John            B Smith           731 Fondren, Houston, TX
+Franklin        T Wong            638 Voss, Houston, TX
+Alicia          J Zelaya          3321 Castle, Spring, TX
+Jennifer        S Wallace         291 Berry, Bellaire, TX
+Ramesh          K Narayan         975 Fire Oak, Humble, TX
+Joyce           A English         5631 Rice, Houston, TX
+Ahmad           V Jabbar          980 Dallas, Houston, TX
+James           E Borg            450 Stone, Houston, TX
+
+9 rows selected.
+
+SQL> desc department;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DNAME                                     NOT NULL VARCHAR2(15)
+ DNUMBER                                   NOT NULL NUMBER(38)
+ MGR_SSN                                   NOT NULL CHAR(9)
+ MGR_START_DATE                                     DATE
+
+SQL> select * from employee;
+
+FNAME           M LNAME           SSN       BDATE
+--------------- - --------------- --------- ---------
+ADDRESS                        S     SALARY SUPER_SSN        DNO
+------------------------------ - ---------- --------- ----------
+Richard         K Marini          653298653 30-DEC-62
+98 Oak Forest, Katy, TX        M      37000 653298653          4
+
+John            B Smith           123456789 09-JAN-65
+731 Fondren, Houston, TX       M      30000 333445555          5
+
+Franklin        T Wong            333445555 08-DEC-65
+638 Voss, Houston, TX          M      40000 888665555          5
+
+
+FNAME           M LNAME           SSN       BDATE
+--------------- - --------------- --------- ---------
+ADDRESS                        S     SALARY SUPER_SSN        DNO
+------------------------------ - ---------- --------- ----------
+Alicia          J Zelaya          999887777 19-JAN-68
+3321 Castle, Spring, TX        F      25000 987654321          4
+
+Jennifer        S Wallace         987654321 20-JUN-41
+291 Berry, Bellaire, TX        F      43000 888665555          4
+
+Ramesh          K Narayan         666884444 15-SEP-62
+975 Fire Oak, Humble, TX       M      38000 333445555          5
+
+
+FNAME           M LNAME           SSN       BDATE
+--------------- - --------------- --------- ---------
+ADDRESS                        S     SALARY SUPER_SSN        DNO
+------------------------------ - ---------- --------- ----------
+Joyce           A English         453453453 31-JUL-72
+5631 Rice, Houston, TX         F      25000 333445555          5
+
+Ahmad           V Jabbar          987987987 29-MAR-69
+980 Dallas, Houston, TX        M      25000 987654321          4
+
+James           E Borg            888665555 10-NOV-37
+450 Stone, Houston, TX         M      55000                    4
+
+
+9 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select fname, minit, lname, address from employee natural join department where
+  2  dname='Research';
+
+FNAME           M LNAME           ADDRESS
+--------------- - --------------- ------------------------------
+Richard         K Marini          98 Oak Forest, Katy, TX
+John            B Smith           731 Fondren, Houston, TX
+Franklin        T Wong            638 Voss, Houston, TX
+Alicia          J Zelaya          3321 Castle, Spring, TX
+Jennifer        S Wallace         291 Berry, Bellaire, TX
+Ramesh          K Narayan         975 Fire Oak, Humble, TX
+Joyce           A English         5631 Rice, Houston, TX
+Ahmad           V Jabbar          980 Dallas, Houston, TX
+James           E Borg            450 Stone, Houston, TX
+
+9 rows selected.
+
+SQL> select fname,minit,lname,address from employee join department on employee.Dno=department.dnumber where dname='Research';
+
+FNAME           M LNAME           ADDRESS
+--------------- - --------------- ------------------------------
+John            B Smith           731 Fondren, Houston, TX
+Franklin        T Wong            638 Voss, Houston, TX
+Ramesh          K Narayan         975 Fire Oak, Humble, TX
+Joyce           A English         5631 Rice, Houston, TX
+
+SQL> select Pnumber,Dnum,lname,address,bdate from project join department on project.Dnum=department.Dnumber natural join employee;
+
+   PNUMBER       DNUM LNAME           ADDRESS                        BDATE
+---------- ---------- --------------- ------------------------------ ---------
+         1          5 Marini          98 Oak Forest, Katy, TX        30-DEC-62
+         1          5 Smith           731 Fondren, Houston, TX       09-JAN-65
+         1          5 Wong            638 Voss, Houston, TX          08-DEC-65
+         1          5 Zelaya          3321 Castle, Spring, TX        19-JAN-68
+         1          5 Wallace         291 Berry, Bellaire, TX        20-JUN-41
+         1          5 Narayan         975 Fire Oak, Humble, TX       15-SEP-62
+         1          5 English         5631 Rice, Houston, TX         31-JUL-72
+         1          5 Jabbar          980 Dallas, Houston, TX        29-MAR-69
+         1          5 Borg            450 Stone, Houston, TX         10-NOV-37
+         2          5 Marini          98 Oak Forest, Katy, TX        30-DEC-62
+         2          5 Smith           731 Fondren, Houston, TX       09-JAN-65
+
+   PNUMBER       DNUM LNAME           ADDRESS                        BDATE
+---------- ---------- --------------- ------------------------------ ---------
+         2          5 Wong            638 Voss, Houston, TX          08-DEC-65
+         2          5 Zelaya          3321 Castle, Spring, TX        19-JAN-68
+         2          5 Wallace         291 Berry, Bellaire, TX        20-JUN-41
+         2          5 Narayan         975 Fire Oak, Humble, TX       15-SEP-62
+         2          5 English         5631 Rice, Houston, TX         31-JUL-72
+         2          5 Jabbar          980 Dallas, Houston, TX        29-MAR-69
+         2          5 Borg            450 Stone, Houston, TX         10-NOV-37
+         3          5 Marini          98 Oak Forest, Katy, TX        30-DEC-62
+         3          5 Smith           731 Fondren, Houston, TX       09-JAN-65
+         3          5 Wong            638 Voss, Houston, TX          08-DEC-65
+         3          5 Zelaya          3321 Castle, Spring, TX        19-JAN-68
+
+   PNUMBER       DNUM LNAME           ADDRESS                        BDATE
+---------- ---------- --------------- ------------------------------ ---------
+         3          5 Wallace         291 Berry, Bellaire, TX        20-JUN-41
+         3          5 Narayan         975 Fire Oak, Humble, TX       15-SEP-62
+         3          5 English         5631 Rice, Houston, TX         31-JUL-72
+         3          5 Jabbar          980 Dallas, Houston, TX        29-MAR-69
+         3          5 Borg            450 Stone, Houston, TX         10-NOV-37
+        10          4 Marini          98 Oak Forest, Katy, TX        30-DEC-62
+        10          4 Smith           731 Fondren, Houston, TX       09-JAN-65
+        10          4 Wong            638 Voss, Houston, TX          08-DEC-65
+        10          4 Zelaya          3321 Castle, Spring, TX        19-JAN-68
+        10          4 Wallace         291 Berry, Bellaire, TX        20-JUN-41
+        10          4 Narayan         975 Fire Oak, Humble, TX       15-SEP-62
+
+   PNUMBER       DNUM LNAME           ADDRESS                        BDATE
+---------- ---------- --------------- ------------------------------ ---------
+        10          4 English         5631 Rice, Houston, TX         31-JUL-72
+        10          4 Jabbar          980 Dallas, Houston, TX        29-MAR-69
+        10          4 Borg            450 Stone, Houston, TX         10-NOV-37
+        20          1 Marini          98 Oak Forest, Katy, TX        30-DEC-62
+        20          1 Smith           731 Fondren, Houston, TX       09-JAN-65
+        20          1 Wong            638 Voss, Houston, TX          08-DEC-65
+        20          1 Zelaya          3321 Castle, Spring, TX        19-JAN-68
+        20          1 Wallace         291 Berry, Bellaire, TX        20-JUN-41
+        20          1 Narayan         975 Fire Oak, Humble, TX       15-SEP-62
+        20          1 English         5631 Rice, Houston, TX         31-JUL-72
+        20          1 Jabbar          980 Dallas, Houston, TX        29-MAR-69
+
+   PNUMBER       DNUM LNAME           ADDRESS                        BDATE
+---------- ---------- --------------- ------------------------------ ---------
+        20          1 Borg            450 Stone, Houston, TX         10-NOV-37
+        30          4 Marini          98 Oak Forest, Katy, TX        30-DEC-62
+        30          4 Smith           731 Fondren, Houston, TX       09-JAN-65
+        30          4 Wong            638 Voss, Houston, TX          08-DEC-65
+        30          4 Zelaya          3321 Castle, Spring, TX        19-JAN-68
+        30          4 Wallace         291 Berry, Bellaire, TX        20-JUN-41
+        30          4 Narayan         975 Fire Oak, Humble, TX       15-SEP-62
+        30          4 English         5631 Rice, Houston, TX         31-JUL-72
+        30          4 Jabbar          980 Dallas, Houston, TX        29-MAR-69
+        30          4 Borg            450 Stone, Houston, TX         10-NOV-37
+
+54 rows selected.
+
+SQL> select Pnumber,Dnum,lname,address,bdate from (project join department on project.Dnum=department.Dnumber) join employee on employee.ssn=department.mgr_ssn where plocation='stafford;
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> select Pnumber,Dnum,lname,address,bdate from (project join department on project.Dnum=department.Dnumber) join employee on employee.ssn=department.mgr_ssn where plocation='stafford';
+
+no rows selected
+
+SQL> select Pnumber,Dnum,lname,address,bdate from (project join department on project.Dnum=department.Dnumber) join employee on employee.ssn=department.mgr_ssn where plocation='Stafford';
+
+   PNUMBER       DNUM LNAME           ADDRESS                        BDATE
+---------- ---------- --------------- ------------------------------ ---------
+        10          4 Wallace         291 Berry, Bellaire, TX        20-JUN-41
+
+SQL> select e.fname,e.lname,s.fname,s.lname from employee e join employee s on e.ssn=s.super_ssn;
+
+FNAME           LNAME           FNAME           LNAME
+--------------- --------------- --------------- ---------------
+Richard         Marini          Richard         Marini
+Franklin        Wong            John            Smith
+James           Borg            Franklin        Wong
+Jennifer        Wallace         Alicia          Zelaya
+James           Borg            Jennifer        Wallace
+Franklin        Wong            Ramesh          Narayan
+Franklin        Wong            Joyce           English
+Jennifer        Wallace         Ahmad           Jabbar
+
+8 rows selected.
+
+SQL> select Pnumber from project join employee on employee.Dno=project.dnum where employee.lname='Smith';
+
+   PNUMBER
+----------
+         1
+         2
+         3
+
+SQL> select p.pnumber
+  2  from project p, works_on w, employee e
+  3  where p.pnumber = w.pno and w.essn = e.ssn and e.lname='Smith'
+  4  union
+  5  select p.pnumber
+  6  from project p, works_on w, employee e, department d
+  7  where p.pnumber = w.pno and p.dnum = d.dnumber and d.mgr_ssn = w.essn and d.mgr_ssn = e.ssn and e.lname='Smith';
+
+   PNUMBER
+----------
+         1
+         2
+
+SQL> select Pnumber from (project join employee on employee.Dno=project.dnum) join works_on on employee.ssn=works_on.essn where employee.lname='Smith';
+
+   PNUMBER
+----------
+         1
+         1
+         2
+         2
+         3
+         3
+
+6 rows selected.
+
+SQL> select Pnumber from (project join employee on employee.Dno=project.dnum) join works_on on employee.ssn=works_on.essn where employee.lname='Smith'
+  2  union
+  3  select Pnumber from (project join employee on employee.Dno=project.dnum) join works_on on department.mgr_ssn=works_on.essn where employee.lname='Smith'
+  4  ;
+select Pnumber from (project join employee on employee.Dno=project.dnum) join works_on on department.mgr_ssn=works_on.essn where employee.lname='Smith'
+
+     *
+ERROR at line 3:
+ORA-00904: "DEPARTMENT"."MGR_SSN": invalid identifier
+
+
+SQL> select p.pnumber
+  2  from project p, works_on w, employee e
+  3  where p.pnumber = w.pno and w.essn = e.ssn and e.lname='Smith'
+  4  union
+  5  select p.pnumber
+  6  from project p, works_on w, employee e, department d
+  7  where p.pnumber = w.pno and p.dnum = d.dnumber and d.mgr_ssn = w.essn and d.mgr_ssn = e.ssn and e.lname='Smith';
+
+   PNUMBER
+----------
+         1
+         2
+
+SQL> select pno from works_on join employee on works_on.essn=employee.ssn where employee.lname='Smith' union select pnumber from project join department on project.dnum=department.Dnumber join employee on department.mgr_ssn=employee.ssn where employee.lname='Smith';
+
+       PNO
+----------
+         1
+         2
+
+SQL> select salary from project join department on project.dnum=department.dnumber jo
+in employee on department.number;
+select salary from project join department on project.dnum=department.dnumber join employee on department.number
+
+                     *
+ERROR at line 1:
+ORA-01747: invalid user.table.column, table.column, or column specification
+
+
+SQL> select salary from employee join works_on on employee.ssn=works_on.essn join project on project.pnumber=works_on.pno where project.pname='ProductX';
+
+    SALARY
+----------
+     30000
+     25000
+
+SQL> select 1.1*salary from employee join works_on on employee.ssn=works_on.essn join project on project.pnumber=works_on.pno where project.pname='ProductX';
+
+1.1*SALARY
+----------
+     33000
+     27500
+
+SQL> select fname from employee join dependent on employee.ssn=dependent.essn where e
+mployee.fname=dependent.dependent;
+select fname from employee join dependent on employee.ssn=dependent.essn where employee.fname=dependent.dependent
+
+         *
+ERROR at line 1:
+ORA-00904: "DEPENDENT"."DEPENDENT": invalid identifier
+
+
+SQL> commit;
+
+Commit complete.
